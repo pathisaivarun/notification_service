@@ -54,7 +54,7 @@ class MailService():
 
             message.set_content(body)
 
-            message["To"] = "n150205@rguktn.ac.in"
+            message["To"] = record["email"]
             message["From"] = "saivarunn150205@gmail.com"
             message["Subject"] = self.subject + record["message"]
 
