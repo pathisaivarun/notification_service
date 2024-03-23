@@ -15,7 +15,7 @@ class RabbitMQWrapper():
             try:
                 self.connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
                 self.channel = self.connection.channel()
-                self.channel.exchange_declare('notification_service')
+                self.channel.exchange_declare(exchange = 'notification_service', exchange_type="direct")
                 self.channel.queue_declare(self.queue)
                 self.channel.queue_bind(self.queue, exchange= 'notification_service')
                 print("connection created")
